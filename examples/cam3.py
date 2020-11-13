@@ -15,8 +15,7 @@ while(True):
     cams[cam] = frame
     #cams[cam] = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    for i in range(CAM_CNT):
-        cv2.imshow('frame' + str(i), cams[i])
+    cv2.imshow('frame', cv2.resize(np.concatenate(cams, axis=1), (width, height)))
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
